@@ -1,13 +1,16 @@
 
 import requests
 import os
-
+import random
 
 def wfile(s):
     with open('1.png', 'wb') as f: 
         f.write(s)
+url = r'https://wz.stc.gov.cn:443/szwsjj_web/ImgServlet.action?rnd=%19.17f'%(random.random())
 
-res = requests.get(r'https://wz.stc.gov.cn/szwsjj_web/ImgServlet.action?rnd=0.14253165441443905')
+# 这里cookie改成用session请求带回来
+res = requests.get(url, headers={'cookie':'JSESSIONID=67948162E0BEF8CC4CF1E51644A417CA'})
+print(url)
 
 wfile(res.content)
 
@@ -17,18 +20,22 @@ headers = {
     'Accept-Encoding': 'gzip, deflate, br',
     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
     'Host': 'wz.stc.gov.cn',
+    'Connection': 'keep-alive',
     'Origin': 'https://wz.stc.gov.cn',
     'Referer': 'https://wz.stc.gov.cn/szwsjj_web/jsp/xxcx/jdcsydqcqqkcx.jsp',
     'User-Agent': r'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
     'X-Requested-With': 'XMLHttpRequest',
-    'cookie': 'JSESSIONID=8FA3454EF0B3F0028352C2EF9C6381E0'
+    'cookie': 'JSESSIONID=67948162E0BEF8CC4CF1E51644A417CA',
+    'Content-Length': '41'
 }
 
-data = {
+data = { 
     'YANZHEN': va,
-    'cph': '粤B6C5V8',
+    'cph': r'%E7%B2%A4B6C5V8',
     'jdclx': '02'
 }
+
+print(data)
 
 res = requests.post('https://wz.stc.gov.cn/szwsjj_web/JdcSydqcqqkcxServlet', headers = headers, data = data)
 
