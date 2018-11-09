@@ -25,8 +25,7 @@ headers = {
     'Referer': 'https://wz.stc.gov.cn/szwsjj_web/jsp/xxcx/jdcsydqcqqkcx.jsp',
     'User-Agent': r'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
     'X-Requested-With': 'XMLHttpRequest',
-    'cookie': 'JSESSIONID=67948162E0BEF8CC4CF1E51644A417CA',
-    'Content-Length': '41'
+    'cookie': 'JSESSIONID=67948162E0BEF8CC4CF1E51644A417CA'
 }
 
 data = { 

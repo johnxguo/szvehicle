@@ -1,7 +1,5 @@
 from PIL import Image
-import pytesseract
-
-import pytesseract
+import pytesseract 
 
 def getImage():
     fileName = '1.jpg'
@@ -24,7 +22,7 @@ def convert_Image(img, standard=127.5):
 def change_Image_to_text(img):
     testdata_dir_config = r'--tessdata-dir "C:\Program Files (x86)\Tesseract-OCR\tessdata"'
     textCode = pytesseract.image_to_string(img, lang='eng', config=testdata_dir_config)
-    # 去掉非法字符，只保留字母数字
+    # todo 去掉非法字符，只保留字母数字
     return textCode
 
 def main():
